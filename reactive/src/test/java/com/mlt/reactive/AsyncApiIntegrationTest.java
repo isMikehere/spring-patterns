@@ -1,9 +1,7 @@
 package com.mlt.reactive;
 
 
-import org.junit.Test;
-
-import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 import reactor.test.StepVerifier;
@@ -11,6 +9,8 @@ import reactor.test.StepVerifier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class AsyncApiIntegrationTest {
 
@@ -28,7 +28,7 @@ public class AsyncApiIntegrationTest {
     private void launch(FluxSink<Integer> integerFluxSink, int count) {
         this.executorService.submit(() -> {
             var integer = new AtomicInteger();
-            Assert.assertNotNull(integerFluxSink);
+            assertNotNull(integerFluxSink);
             while (integer.get() < count) {
                 double random = Math.random();
                 integerFluxSink.next(integer.incrementAndGet());
