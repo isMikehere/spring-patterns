@@ -3,6 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     java
     kotlin("jvm") version "1.4.21"
+    id("org.springframework.boot") version "2.3.0.RELEASE"
+    id("io.spring.dependency-management") version "1.0.9.RELEASE"
+    kotlin("plugin.spring") version "1.4.21"
 }
 
 
@@ -16,7 +19,8 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("io.projectreactor:reactor-core:3.4.1")
-    implementation("org.projectlombok:lombok:1.18.16")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("io.r2dbc:r2dbc-postgresql")
     testImplementation("io.projectreactor:reactor-test:3.4.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")

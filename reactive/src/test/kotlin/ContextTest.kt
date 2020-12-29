@@ -31,7 +31,7 @@ class ContextTest {
                         assertNotNull(key1)
                         assertEquals(key1, "value1")
                         observedContextValues
-                            .computeIfAbsent("key1") { k -> AtomicInteger(0) }
+                            .computeIfAbsent("key1") { AtomicInteger(0) }
                             .incrementAndGet()
                     }
                     else -> {
